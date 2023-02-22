@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+/* config the webpages */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Inter", sans-serif;
+  background-color: #ccc;
+  width: 100vw;
+  color: #2b2b2b !important;
+}
+
+/* wallpaper design */
+.wallpaper {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  width: 400px;
+  height: auto;
+  align-items: center;
+  border-radius: 10px;
+  background: radial-gradient(
+    140% 140% at 0% 0%,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-top: 1px solid #eeeded70;
+  border-left: 1px solid #eeeded70;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  gap: 10px;
+}
+.container .upper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container .upper .title {
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #2b2b2b;
+}
+
+.content {
+  position: relative;
+  padding: 10px;
+  width: 100%;
+}
+.content .result {
+  height: 100%;
+  width: 100%;
+}
+.form {
+  position: relative;
+  width: 100%;
+  padding-inline-end: 1em;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  position: relative;
+  border-radius: 4px;
+}
+.form .search {
+  position: relative;
+}
+
+.form label {
+  display: flex;
+  font-size: 19px;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+
+.form input {
+  position: relative;
+  width: 100%;
+  font-size: 17px;
+  padding-inline-start: calc(1.5em + 2em);
+  outline: none;
+  background: none;
+  text-transform: capitalize;
+  border: 0;
+}
+/* style for both icons -- search,close */
+.form svg {
+  /* display: block; */
+  color: #111;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  height: 19px;
+}
+/* search icon */
+.icon {
+  position: absolute;
+  left: 1.5em;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* arrow-icon*/
+.swap-off {
+  transform: rotate(-80deg);
+  opacity: 0;
+  visibility: hidden;
+}
+/* close button */
+.close-btn {
+  /* removing default bg of button */
+  background: none;
+  border: none;
+  right: calc(1.5em - 2em);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  padding: 0.1em;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: 0.3s;
+  opacity: 0;
+  transform: scale(0);
+  visibility: hidden;
+}
+
+.form input:focus ~ .icon {
+  transform: rotate(80deg) scale(1.3);
+}
+
+.form input:focus ~ .icon .swap-off {
+  opacity: 1;
+  transform: rotate(-80deg);
+  visibility: visible;
+  color: #15a986;
+}
+
+.form input:focus ~ .icon .swap-on {
+  opacity: 0;
+  visibility: visible;
+}
+
+.form input:valid ~ .icon {
+  transform: scale(1.3) rotate(80deg);
+}
+
+.form input:valid ~ .icon .swap-off {
+  opacity: 1;
+  visibility: visible;
+  color: #15a986;
+}
+
+.form input:valid ~ .icon .swap-on {
+  opacity: 0;
+  visibility: visible;
+}
+
+.form input:valid ~ .close-btn {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: 0s;
+}
+
+.container .result.body {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  display: flex;
+  padding: 0px 10px;
+  gap: 10px;
+  justify-content: center;
+  flex-direction: column;
+}
+.container .result.body .upper {
+  flex: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(3px);
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+.container .result.body .upper .title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 70%;
+  width: 100%;
+}
+.container .result.body .upper .title .city{
+  font-size: 17px;
+  display: flex;
+  overflow-wrap: none;
+  word-wrap: none;
+  align-items: center;
+}
+.container .result.body .upper .title p{
+  font-size: 35px;
+  font-family: 'Inter',sans-serif;
+  font-weight: 600;
+}
+
+.container .result.body .upper .icon_field {
+  border-radius: 50%;
+  padding: 10px;
+  flex: 30%;
+  height: fit-content;
+  width: fit-content;
+}
+.container .result.body .upper .icon_field img {
+  width: 100px;
+  height: 100px;
+}
+.container .result.body .footer {
+  backdrop-filter: blur(3px);
+  padding: 5px;
+  border-radius: 15px;
+  flex: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.container .result.body .footer .details{
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-family: 'Inter',sans-serif;
+  font-weight: 600;
+  line-height: 25px;
+}

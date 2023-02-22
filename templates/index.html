@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+  </head>
+  <body>
+    <img
+      src="{{ url_for('static', filename='img/wall.jfif') }}"
+      alt="background"
+      class="wallpaper"
+    />
+    <div class="container">
+      <div class="upper">
+        <div class="title">
+          <h3>Weather App</h3>
+        </div>
+        <div class="content">
+          <form class="form" method="post">
+            <label for="search">
+              <input
+                required=""
+                autocomplete="off"
+                placeholder="enter your city name"
+                id="search"
+                type="text"
+                name="name"
+              />
+              <div class="icon">
+                <svg
+                  stroke-width="2"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="swap-on"
+                >
+                  <path
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                  ></path>
+                </svg>
+                <svg
+                  stroke-width="2"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="swap-off"
+                >
+                  <path
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                  ></path>
+                </svg>
+              </div>
+              <button type="reset" class="close-btn">
+                <svg
+                  viewBox="0 0 20 20"
+                  class="h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    fill-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </label>
+          </form>
+          <div class="result"></div>
+        </div>
+      </div>
+      {% if context.data %}
+      <div class="result body">
+        <div class="upper">
+          <div class="title">
+            <h4 class="city">
+              <span class="material-symbols-outlined"> location_on </span
+              ><span>{{context.township}},{{context.city}}</span>
+            </h4>
+            <p>
+              <span class="material-symbols-outlined"> device_thermostat </span
+              ><span>{{context.temp}}</span> <span>&#8451;</span>
+            </p>
+            <span
+              style="font-size: 16px; font-weight: 600; font-family: sans-serif"
+              >{{context.description}}</span
+            >
+          </div>
+          <div class="icon_field">
+            <img src="{{url_for('static',filename=context.icon)}}" alt="" />
+          </div>
+        </div>
+        <div class="footer">
+          <div class="details">
+            <span>Temperature Maximum : {{context.temp_max}} <span>&#8451;</span></span>
+            <span>Temperature Minimum : {{context.temp_min}} <span>&#8451;</span></span>
+            <span>Feels Like : {{context.feel}} <span>&#8451;</span></span>
+            <span>Humidity : {{context.humidity}} <span>&#8451;</span></span>
+            <span>Pressure : {{context.pressure}}</span>
+            <span>Wind Speed : {{context.windspeed}}</span>
+            <span>Wind Type : {{context.windtype}}</span>
+            <span>Wind Direction : {{context.windeg}}</span>
+            <span>Status : {{context.status}}</span
+            ><span>Exact Location : {{context.town}}</span>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="result body"></div>
+      {% endif %}
+    </div>
+  </body>
+</html>
