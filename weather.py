@@ -29,56 +29,10 @@ def detect_location_data():
         return False
 
 
-def get_ip_force():
-    response = requests.get('https://api64.ipify.org?format=json').json()
-    write_env('ip_address', response['ip'])
-    return response['ip']
-
-
-def get_ip():
-    status, data = detect_exists_env('IP_ADDRESS')
-    if status:
-        return data
-    else:
-        return get_ip_force()["ip"]
-
-
-def load_location():
-    with open('location_data.json', 'r') as file:
-        data = json.load(file)
-    return data
-
-
-def get_location(check=True):
-    ip_address = get_ip().replace('\n', '')
-    if detect_location_data() and check:
-        location_data = load_location()
-    else:
-        url = f'https://ipapi.co/{ip_address}/json/'
-        response = requests.get(url)
-        data = json.loads(response.text)
-        location_data = {
-            "ip": ip_address,
-            "city": data["city"],
-            "region": data["region"],
-            "country": data["country_name"],
-            "lat": data["latitude"],
-            "lon": data["longitude"]
-        }
-        with open('location_data.json', 'w') as file:
-            data = json.dumps(location_data, indent=4, allow_nan=True)
-            file.write(data)
-        return location_data
-
-
 class Weather:
     def __init__(self, location=None) -> None:
         self.weather_status = None
-        self.data = get_location()
         self.api = os.getenv('WEATHER_API')
-        if not location:
-            data = load_location()
-            location = data['city']+' '+data['region']
 
         self.address, self.lat, self.lon = self.get_weather(location)
 

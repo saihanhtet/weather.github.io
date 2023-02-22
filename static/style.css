@@ -236,7 +236,6 @@ body {
   height: 100px;
 }
 .container .result.body .footer {
-  backdrop-filter: blur(3px);
   padding: 5px;
   border-radius: 15px;
   flex: 70%;
@@ -250,6 +249,6 @@ body {
   flex-direction: column;
   padding: 10px;
   font-family: 'Inter',sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 25px;
 }
