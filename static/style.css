@@ -52,6 +52,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 10px;
 }
 /* container --upper inside title design */
 .container .upper .title {
@@ -145,10 +146,11 @@ body {
   width: 100%;
   padding-inline-end: 1em;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid black;
   border-radius: 15px;
   position: relative;
   border-radius: 4px;
+  cursor: pointer;
 }
 .form .search {
   position: relative;
@@ -223,7 +225,7 @@ body {
   opacity: 1;
   transform: rotate(-80deg);
   visibility: visible;
-  color: #15a986;
+  color: #111;
 }
 
 .form input:focus ~ .icon .swap-on {
@@ -238,7 +240,7 @@ body {
 .form input:valid ~ .icon .swap-off {
   opacity: 1;
   visibility: visible;
-  color: #15a986;
+  color: #111;
 }
 
 .form input:valid ~ .icon .swap-on {

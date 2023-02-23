@@ -8,6 +8,17 @@ import json
 load_dotenv()
 
 
+def write_location(city, address, lat, lon):
+    dirs = None
+    with open('city_location.json', 'r') as file:
+        data = json.load(file)
+        data[city] = [{'city': city,
+                       'address': address, 'lat': lat, 'lon': lon}]
+        dirs = json.dumps(data, indent=4)
+    with open('city_location.json', 'w') as file:
+        file.write(str(dirs))
+
+
 # building class for the weather
 class Weather:
     # initialise the variable need for application
@@ -18,6 +29,7 @@ class Weather:
         # check the location is None or not. if has location : Weather('Tokyo').new() else raise error.
         if location:
             self.address, self.lat, self.lon = self.get_weather(location)
+            # write_location(location, self.address, self.lat, self.lon)
         else:
             raise 'Need to add the location'
 

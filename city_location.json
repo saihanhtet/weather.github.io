@@ -1,0 +1,42 @@
+{
+  "london": [
+    {
+      "city": "london",
+      "address": "London, Greater London, England, United Kingdom",
+      "lat": 51.5073359,
+      "lon": -0.12765
+    }
+  ],
+  "yangon Tamwe": [
+    {
+      "city": "yangon Tamwe",
+      "address": "\u1010\u102c\u1019\u103d\u1031, Southern District, Yangon, \u101b\u1014\u103a\u1000\u102f\u1014\u103a\u1010\u102d\u102f\u1004\u103a\u1038\u1012\u1031\u101e\u1000\u103c\u102e\u1038, \u1019\u103c\u1014\u103a\u1019\u102c",
+      "lat": 16.8062992,
+      "lon": 96.1769272
+    }
+  ],
+  "yangon bahan": [
+    {
+      "city": "yangon bahan",
+      "address": "\u1017\u101f\u1014\u103a\u1038, Western District, Yangon, \u101b\u1014\u103a\u1000\u102f\u1014\u103a\u1010\u102d\u102f\u1004\u103a\u1038\u1012\u1031\u101e\u1000\u103c\u102e\u1038, 11201, \u1019\u103c\u1014\u103a\u1019\u102c",
+      "lat": 16.8061396,
+      "lon": 96.1512582
+    }
+  ],
+  "bahan yangon": [
+    {
+      "city": "bahan yangon",
+      "address": "\u1017\u101f\u1014\u103a\u1038, Western District, Yangon, \u101b\u1014\u103a\u1000\u102f\u1014\u103a\u1010\u102d\u102f\u1004\u103a\u1038\u1012\u1031\u101e\u1000\u103c\u102e\u1038, 11201, \u1019\u103c\u1014\u103a\u1019\u102c",
+      "lat": 16.8061396,
+      "lon": 96.1512582
+    }
+  ],
+  "tokyo japan": [
+    {
+      "city": "tokyo japan",
+      "address": "\u6771\u4eac\u90fd, \u65e5\u672c",
+      "lat": 35.6812665,
+      "lon": 139.757653
+    }
+  ]
+}
