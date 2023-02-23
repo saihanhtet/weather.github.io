@@ -1,3 +1,4 @@
+# importing all the file we needed to make the weather app
 from geopy.geocoders import Nominatim
 import requests
 from dotenv import load_dotenv
@@ -7,34 +8,18 @@ import json
 load_dotenv()
 
 
-def write_env(name, data):
-    with open(".env", "a") as f:
-        f.write(f"{name.upper()}={data}\n")
-        f.close()
-
-
-def detect_exists_env(check_name):
-    with open(".env", "r") as f:
-        for data in f.readlines():
-            name = data.split('=')
-            if name[0] == check_name.upper():
-                return True, name[1]
-    return False, None
-
-
-def detect_location_data():
-    if os.path.isfile('location_data.json'):
-        return True
-    else:
-        return False
-
-
+# building class for the weather
 class Weather:
+    # initialise the variable need for application
     def __init__(self, location=None) -> None:
-        self.weather_status = None
+        '''location : location of any city or any country you want to get the weather result '''
+        # get weather api from .env
         self.api = os.getenv('WEATHER_API')
-
-        self.address, self.lat, self.lon = self.get_weather(location)
+        # check the location is None or not. if has location : Weather('Tokyo').new() else raise error.
+        if location:
+            self.address, self.lat, self.lon = self.get_weather(location)
+        else:
+            raise 'Need to add the location'
 
     @ staticmethod
     def get_weather(loc):
@@ -46,12 +31,14 @@ class Weather:
             raise 'no connection'
 
     def get_json(self):
+        '''Get the weather results from openweathermap.org with latitude and longitude '''
         url = f"https://api.openweathermap.org/data/2.5/weather?lat={self.lat}&lon={self.lon}&appid={self.api}"
         res = requests.get(url)
         data = json.loads(res.text)
         return data
 
     def new(self, sentence=True):
+        '''Generate the results '''
         json_data = self.get_json()
         weather = json_data['weather'][0]
         status = weather['main']
@@ -74,6 +61,7 @@ class Weather:
 
     @ staticmethod
     def wind_type(windspeed):
+        '''Returns the wind type from calculating the windspeed '''
         windspeed = int(round(windspeed, 1))
         if windspeed < 1:
             return 'clam'

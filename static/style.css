@@ -24,6 +24,7 @@ body {
   width: 100%;
   object-fit: cover;
 }
+/* container design */
 .container {
   position: relative;
   display: flex;
@@ -45,28 +46,100 @@ body {
   z-index: 1;
   gap: 10px;
 }
+/* container --upper division design */
 .container .upper {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+/* container --upper inside title design */
 .container .upper .title {
   font-size: 21px;
   font-weight: 500;
   letter-spacing: 2px;
   color: #2b2b2b;
 }
-
-.content {
-  position: relative;
-  padding: 10px;
+/* container --result division design */
+.container .result.body {
   width: 100%;
-}
-.content .result {
   height: 100%;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  display: flex;
+  padding: 0px 10px;
+  gap: 10px;
+  justify-content: center;
+  flex-direction: column;
+}
+/* container --upper divsion inside result division design */
+.container .result.body .upper {
+  flex: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(3px);
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+/* container --title in upper division of result div design */
+.container .result.body .upper .title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 70%;
   width: 100%;
 }
+/* City font */
+.container .result.body .upper .title .city {
+  font-size: 17px;
+  display: flex;
+  overflow-wrap: none;
+  word-wrap: none;
+  align-items: center;
+}
+/* temperature design */
+.container .result.body .upper .title p {
+  font-size: 35px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+/* weather icon */
+.container .result.body .upper .icon_field {
+  border-radius: 50%;
+  padding: 10px;
+  flex: 30%;
+  height: fit-content;
+  width: fit-content;
+}
+/* weather icon img show */
+.container .result.body .upper .icon_field img {
+  width: 100px;
+  height: 100px;
+}
+/* footer divison which show the detail of weather results inside the result division */
+.container .result.body .footer {
+  padding: 5px;
+  border-radius: 15px;
+  flex: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+/* detail design */
+.container .result.body .footer .details {
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  line-height: 25px;
+}
+/* input form design */
 .form {
   position: relative;
   width: 100%;
@@ -101,7 +174,6 @@ body {
 }
 /* style for both icons -- search,close */
 .form svg {
-  /* display: block; */
   color: #111;
   transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
@@ -179,76 +251,4 @@ body {
   visibility: visible;
   transform: scale(1);
   transition: 0s;
-}
-
-.container .result.body {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  border: 1px solid transparent;
-  display: flex;
-  padding: 0px 10px;
-  gap: 10px;
-  justify-content: center;
-  flex-direction: column;
-}
-.container .result.body .upper {
-  flex: 30%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 0px 30px;
-  border-radius: 15px;
-  backdrop-filter: blur(3px);
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-}
-.container .result.body .upper .title {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex: 70%;
-  width: 100%;
-}
-.container .result.body .upper .title .city{
-  font-size: 17px;
-  display: flex;
-  overflow-wrap: none;
-  word-wrap: none;
-  align-items: center;
-}
-.container .result.body .upper .title p{
-  font-size: 35px;
-  font-family: 'Inter',sans-serif;
-  font-weight: 600;
-}
-
-.container .result.body .upper .icon_field {
-  border-radius: 50%;
-  padding: 10px;
-  flex: 30%;
-  height: fit-content;
-  width: fit-content;
-}
-.container .result.body .upper .icon_field img {
-  width: 100px;
-  height: 100px;
-}
-.container .result.body .footer {
-  padding: 5px;
-  border-radius: 15px;
-  flex: 70%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.container .result.body .footer .details{
-  font-size: 15px;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  font-family: 'Inter',sans-serif;
-  font-weight: 500;
-  line-height: 25px;
 }

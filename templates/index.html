@@ -5,15 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <!-- link with the static file and google icons -->
     <link
       rel="stylesheet"
       type="text/css"
       href="{{ url_for('static', filename='style.css') }}"
     />
+    <!-- href="./style.css" in regular html file but it is like this because I write the file with flask framework -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
     />
+    <!-- link end -->
   </head>
   <body>
     <img
@@ -21,14 +24,16 @@
       alt="background"
       class="wallpaper"
     />
+    <!-- this img tag is for the background of the weather app -->
     <div class="container">
+      <!-- container for the items to show our results -->
       <div class="upper">
         <div class="title">
           <h3>Weather App</h3>
         </div>
         <div class="content">
           <form class="form" method="post">
-            <label for="search">
+            <label for="search"> <!--This is for the icons that show arrow and search in input box-->
               <input
                 required=""
                 autocomplete="off"
@@ -82,25 +87,27 @@
               </button>
             </label>
           </form>
-          <div class="result"></div>
         </div>
       </div>
+      <!-- Check if the context.data which is reffered in main.py file context dict that data is true or none-->
+      <!-- If the data is true then we will show the result of weather  else no -->
       {% if context.data %}
       <div class="result body">
         <div class="upper">
           <div class="title">
             <h4 class="city">
-              <span class="material-symbols-outlined"> location_on </span
-              ><span>{{context.township}},{{context.city}}</span>
+              <span class="material-symbols-outlined"> location_on </span>
+              <span>{{context.township}},{{context.city}}</span>
             </h4>
             <p>
-              <span class="material-symbols-outlined"> device_thermostat </span
-              ><span>{{context.temp}}</span> <span>&#8451;</span>
+              <span class="material-symbols-outlined"> device_thermostat </span>
+              <span>{{context.temp}}</span> <span>&#8451;</span>
             </p>
             <span
               style="font-size: 16px; font-weight: 600; font-family: sans-serif"
-              >{{context.description}}</span
             >
+              {{context.description}}
+            </span>
           </div>
           <div class="icon_field">
             <img src="{{url_for('static',filename=context.icon)}}" alt="" />
@@ -108,8 +115,14 @@
         </div>
         <div class="footer">
           <div class="details">
-            <span>Temperature Maximum : {{context.temp_max}} <span>&#8451;</span></span>
-            <span>Temperature Minimum : {{context.temp_min}} <span>&#8451;</span></span>
+            <span>
+              Temperature Maximum : {{context.temp_max}}
+              <span>&#8451;</span>
+            </span>
+            <span>
+              Temperature Minimum : {{context.temp_min}}
+              <span>&#8451;</span>
+            </span>
             <span>Feels Like : {{context.feel}} <span>&#8451;</span></span>
             <span>Humidity : {{context.humidity}} <span>&#8451;</span></span>
             <span>Pressure : {{context.pressure}}</span>
@@ -123,6 +136,7 @@
       </div>
       {% else %}
       <div class="result body"></div>
+      <!-- Show nothing -->
       {% endif %}
     </div>
   </body>

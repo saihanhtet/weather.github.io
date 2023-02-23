@@ -5,18 +5,22 @@ import random
 
 app = Flask(__name__)  # initialise application
 
-# configurations
+# configurations of function
 
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])  # route configure
 def index():
+    # listen for the request from form in html template
     if request.method == 'POST':
+        # get the city from form input in html template
         city = request.form['name']
-        weather = Weather(city).new(sentence=False)
+        weather = Weather(city).new(sentence=False)  # get the weather results
         dirs = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE',
-                'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW']
+                'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW']  # dict list for wind directions
+        # converting wind degree to wind direction
         ix = round(weather[12] / (360. / len(dirs)))
         direction = dirs[ix % len(dirs)]
+        # context is the give the access to weather data inside the html template
         context = {
             'city': weather[0],
             'temp': weather[1],
@@ -35,6 +39,7 @@ def index():
             'township': weather[13].split(',')[0],
             'data': True
         }
+        # call the template you want to show.
         return render_template('index.html', context=context)
     else:
         context = {
