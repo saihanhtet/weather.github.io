@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-git clone https://github.com/saihanhtet/weather.git
+git clone https://github.com/saihanhtet/weather.github.io.git
 
 cd weather
 
