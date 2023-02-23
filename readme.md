@@ -12,7 +12,7 @@ pip install - r requirements.txt
 
 ###  To run the app 
 ```
-python.exe main.py
+python.exe index.py
 ```
 
 That is all thanks.
