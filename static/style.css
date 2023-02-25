@@ -41,7 +41,7 @@ body {
   );
   border-top: 1px solid #eeeded70;
   border-left: 1px solid #eeeded70;
-  backdrop-filter: blur(30px);
+  backdrop-filter: blur(5px);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
   z-index: 1;
   gap: 10px;
@@ -253,4 +253,11 @@ body {
   visibility: visible;
   transform: scale(1);
   transition: 0s;
+}
+
+@media screen and (max-width:600px){
+  .container{
+    width: 100%;
+    backdrop-filter: blur(0px);
+  }
 }

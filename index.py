@@ -1,7 +1,5 @@
 from flask import Flask, render_template, request
-from dotenv import load_dotenv
 from weather import Weather
-import random
 
 app = Flask(__name__)  # initialise application
 
@@ -42,6 +40,7 @@ def index():
         # call the template you want to show.
         return render_template('index.html', context=context)
     else:
+        # data is to check where data is empty or not and if empty results not show.
         context = {
             "data": False
         }
@@ -49,6 +48,8 @@ def index():
 
 
 if __name__ == '__main__':
-    import webbrowser
+    import webbrowser  # import webbrowser package to open in browser
+    # open the website in browser with link
     webbrowser.open('http://127.0.0.1:5000/')
+    # debug should be false to open with webbrowser debug run twice
     app.run(debug=False)
